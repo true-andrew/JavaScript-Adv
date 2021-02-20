@@ -9,9 +9,17 @@
 <body>
 <header>
     <h1 class="shop-heading">Shop</h1>
-    <button class="cart-button" type="button">Корзина</button>
+    <button type="button" class="cart-button">Корзина</button>
+    <input type="checkbox" name="cart" id="cart">
 </header>
 <main>
+    <div class="cart-list">
+        <div>
+            <div class="cart-list-goods"></div>
+        </div>
+        <h1 class="cart-heading">Всего товаров: <span id="number_of_goods"></span></h1>
+        <h1 class="cart-heading">Итого: <span id="price_of_goods"></span></h1>
+    </div>
     <div class="goods-list"></div>
 </main>
 
