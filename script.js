@@ -1,5 +1,5 @@
 const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
+//test test test test
 let makeGetRequest = (url) => {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
