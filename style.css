@@ -19,21 +19,42 @@ header {
 }
 
 .cart-list {
-    display: none;
+    display: block;
     background-color: palegoldenrod;
     flex-direction: column;
 }
 
-.cart-item {
-    border-bottom: 2px solid black;
+.invisible {
+    display: none;
 }
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    margin: 0 25px;
+}
+
 #cart{
     display: none;
 }
 
 .cart-heading {
-    font-family: Arial sans-serif;
     margin: 0 0 0 25px;
+}
+
+.product-bio{
+    display: flex;
+    align-items: center;
+}
+
+figure{
+    margin: 5px 0;
+}
+
+figcaption{
+    margin: 0 0 0 10px;
 }
 
 .goods-list {
@@ -44,7 +65,7 @@ header {
 }
 
 .goods-item {
-    font-family: Arial sans-serif;
+
     max-width: 25%;
     display: flex;
     flex-direction: column;
@@ -68,6 +89,7 @@ header {
     border: none;
     margin: 0 25px 0 0;
     transition: 0.3s;
+    align-self: center;
 }
 
 .cart-button:hover {
