@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+</head>
+<body>
+<script>
+    //1 задание
+    let text = `he said 'hi', adawkldmawlkdm and 'lol' you're`
+    let regexp = /'/g;
+    console.log(text.replace(regexp, '"'));
+
+    //2 задание
+    //для обработки отдельных слов достаточно использовать /B
+    let text2 = `'adw' he said 'hi', adawkldmawlkdm and 'lol' you're 'aw'`
+    let regexp2 = /\B'|'\B/g;
+    console.log(text2.replace(regexp2, '"'));
+</script>
+</body>
+</html>
