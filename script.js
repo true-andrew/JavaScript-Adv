@@ -35,7 +35,17 @@ class List {
         }
     }
 
-    filter() {
+    filter(value) {
+        const exp = new RegExp(value, 'i');
+        this.filtered = this.allProducts.filter(product => exp.test(product.product_name));
+        this.allProducts.forEach(elem => {
+            const block = document.querySelector(`.goods-item[data-id="${elem.id_product}"]`);
+            if (!this.filtered.includes(elem)) {
+                block.classList.add('invisible');
+            } else {
+                block.classList.remove('invisible');
+            }
+        })
     }
 
     _init() {
@@ -52,7 +62,7 @@ class Item {
     }
 
     render() {
-        return `<div class="goods-item">
+        return `<div class="goods-item" data-id="${this.id_product}">
                     <img src=${this.img} alt="placeholder">
                     <h3>${this.product_name}</h3>
                     <p>${this.price}</p>
@@ -80,10 +90,11 @@ class GoodsList extends List {
                 this.cart.addProduct(event.target);
             }
         });
-        // document.querySelector('.search-form').addEventListener('submit', event => {
-        //     event.preventDefault();
-        //     this.filter(document.querySelector('.search-field').value)
-        // })
+        document.querySelector('.search').addEventListener('submit', event => {
+            event.preventDefault();
+            console.log(document.querySelector('.goods-search').value)
+            this.filter(document.querySelector('.goods-search').value)
+        })
     }
 }
 
