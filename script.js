@@ -7,6 +7,7 @@ const app = new Vue({
             return fetch(url)
                 .then(response => response.json())
                 .catch(error => {
+                    this.$root.$refs.error.isError = true;
                     console.log(error);
                 });
         },
