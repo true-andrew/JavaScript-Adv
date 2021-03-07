@@ -2,11 +2,6 @@ const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-sto
 
 const app = new Vue({
     el: '#app',
-    data() {
-        return {
-            searchLine: '',
-        };
-    },
     methods: {
         getJson(url) {
             return fetch(url)

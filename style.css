@@ -66,6 +66,14 @@ figcaption{
     justify-content: space-between;
 }
 
+.filtered-list{
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: lightgreen;
+}
+
 .good-item {
     max-width: 25%;
     display: flex;
