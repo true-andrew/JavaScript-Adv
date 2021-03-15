@@ -23,8 +23,26 @@ const handler = (req, res, action, file) => {
             })
         }
     });
+    fs.readFile('./server/db/stats.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.log(`Ошибка при чтении файла статистики: ${err}`);
+        } else {
+            const stat = JSON.parse(data);
+            const time = new Date();
+            const newStat = {
+                product: `${req.body.product_name}`,
+                action: `${action}`,
+                time: `${time}`,
+            }
+            stat.push(newStat);
+            fs.writeFile('./server/db/stats.json', JSON.stringify(stat, null, 4), (err) => {
+                if (err) {
+                    console.log(`Ошибка при записи файла статистики: ${err}`);
+                }
+            })
+        }
+    })
 };
-
 
 
 module.exports = handler;
