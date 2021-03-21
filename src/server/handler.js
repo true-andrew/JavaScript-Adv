@@ -1,12 +1,14 @@
 const fs = require('fs');
-const time = require('moments')
 const cart = require('./cart');
+const path = require('path');
 
 const actions = {
     add: cart.add,
     change: cart.change,
     delete: cart.remove,
 };
+
+const statsPath = path.resolve(__dirname, './db/stats.json');
 
 const handler = (req, res, action, file) => {
     fs.readFile(file, 'utf-8', (err, data) => {
@@ -23,7 +25,7 @@ const handler = (req, res, action, file) => {
             })
         }
     });
-    fs.readFile('./server/db/stats.json', 'utf-8', (err, data) => {
+    fs.readFile(statsPath, 'utf-8', (err, data) => {
         if (err) {
             console.log(`Ошибка при чтении файла статистики: ${err}`);
         } else {
@@ -35,7 +37,7 @@ const handler = (req, res, action, file) => {
                 time: `${time}`,
             }
             stat.push(newStat);
-            fs.writeFile('./server/db/stats.json', JSON.stringify(stat, null, 4), (err) => {
+            fs.writeFile(statsPath, JSON.stringify(stat, null, 4), (err) => {
                 if (err) {
                     console.log(`Ошибка при записи файла статистики: ${err}`);
                 }
