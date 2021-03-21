@@ -1,0 +1,22 @@
+[
+    {
+        "product": "Мышка",
+        "action": "add",
+        "time": "Mon Mar 15 2021 11:24:46 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "change",
+        "time": "Mon Mar 15 2021 11:25:07 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "delete",
+        "time": "Mon Mar 15 2021 11:25:24 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "delete",
+        "time": "Mon Mar 15 2021 11:25:34 GMT+0300 (GMT+03:00)"
+    }
+]

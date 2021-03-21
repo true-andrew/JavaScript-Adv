@@ -67,11 +67,11 @@ figcaption{
 }
 
 .good-item {
-    max-width: 25%;
+    max-width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 0 15px 0;
+    margin: 0 50px 15px;
     padding: 15px;
     border: 1px solid gold;
     border-radius: 12px;
