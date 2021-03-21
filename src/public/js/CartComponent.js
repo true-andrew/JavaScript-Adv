@@ -1,4 +1,7 @@
-Vue.component('cart', {
+const cart = {
+    components: {
+        cart_item,
+    },
     data() {
         return {
             imgCart: 'https://placehold.it/150x150',
@@ -13,7 +16,11 @@ Vue.component('cart', {
         addProduct(product) {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if (find) {
-                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`});
+                this.$parent.putJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                });
                 find.quantity++;
                 this.final_price += find.price;
             } else {
@@ -31,10 +38,18 @@ Vue.component('cart', {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             this.final_price -= find.price;
             if (find.quantity > 1) {
-                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`});
+                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                });
                 find.quantity--;
             } else {
-                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`})
+                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                })
                     .then(data => {
                         if (data.result === 1) {
                             this.cartItems.splice(this.cartItems.indexOf(find), 1);
@@ -72,9 +87,9 @@ Vue.component('cart', {
             <h1 v-if="cartItems.length" class="cart-heading">Всего товаров: {{amount}}</h1>
             <h1 v-if="cartItems.length" class="cart-heading">Итого: {{final_price}}</h1>
         </div>`
-});
+};
 
-Vue.component('cart-item', {
+const cart_item = {
     props: ['cartItem', 'img'],
     template: `
                     <div class="cart-item" :data-id="cartItem.id_product">
@@ -91,4 +106,6 @@ Vue.component('cart-item', {
                             <button class="del-btn" @click="$emit('remove', cartItem); $parent.amount--">&#10006;</button>
                         </div>
                     </div>`
-});
+};
+
+export default cart;

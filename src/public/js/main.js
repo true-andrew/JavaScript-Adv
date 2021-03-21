@@ -1,7 +1,16 @@
-const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+import cart from "./CartComponent";
+import products from "./ProductsComponent";
+import search from "./FilterComponent";
+import error from "./ErrComponent";
 
 const app = new Vue({
     el: '#app',
+    components: {
+        cart,
+        products,
+        search,
+        error,
+    },
     methods: {
         getJson(url) {
             return fetch(url)
@@ -55,3 +64,5 @@ const app = new Vue({
         console.log(this);
     }
 });
+
+export default app;

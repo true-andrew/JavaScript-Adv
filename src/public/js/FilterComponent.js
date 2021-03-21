@@ -1,4 +1,4 @@
-Vue.component('search', {
+const search = {
     data() {
         return {
             filtered: [],
@@ -16,4 +16,6 @@ Vue.component('search', {
                     <button class="search-button btn btn-light" type="submit" @click.prevent="filter">Искать
                     </button>
                 </form>`
-});
+};
+
+export default search;

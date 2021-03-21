@@ -1,4 +1,4 @@
-Vue.component('error', {
+const error = {
     data() {
         return {
             isError: false,
@@ -13,4 +13,6 @@ Vue.component('error', {
         }
     },
     template: `<h3 v-show="isError">Возникла ошибка ${this.error}</h3>`,
-});
+};
+
+export default error;

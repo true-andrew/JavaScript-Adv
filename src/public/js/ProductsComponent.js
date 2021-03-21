@@ -1,4 +1,7 @@
-Vue.component('products', {
+const products = {
+    components: {
+        product,
+    },
     data() {
         return {
             catalogUrl: '/api/products',
@@ -25,9 +28,9 @@ Vue.component('products', {
                              :product="item">
                     </product>
                 </div>`
-});
+};
 
-Vue.component('product', {
+const product = {
     props: ['product', 'img'],
     data() {
         return {
@@ -44,4 +47,6 @@ Vue.component('product', {
                     <button class="cart-button" @click="cartAPI.addProduct(product); cartAPI.amount++">Купить</button>
                 </div>
             </div>`
-});
+};
+
+export default products;
