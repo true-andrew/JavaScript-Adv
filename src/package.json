@@ -2,7 +2,7 @@
   "name": "lesson1",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "src/server/server.js",
   "dependencies": {
     "express": "^4.17.1",
     "moments": "0.0.2"

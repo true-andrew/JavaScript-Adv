@@ -1,0 +1,102 @@
+[
+    {
+        "product": "Мышка",
+        "action": "add",
+        "time": "Mon Mar 15 2021 11:24:46 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "change",
+        "time": "Mon Mar 15 2021 11:25:07 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "delete",
+        "time": "Mon Mar 15 2021 11:25:24 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "delete",
+        "time": "Mon Mar 15 2021 11:25:34 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "add",
+        "time": "Sun Mar 21 2021 17:35:38 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "add",
+        "time": "Sun Mar 21 2021 17:35:39 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Мышка",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:35:40 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:35:40 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "add",
+        "time": "Sun Mar 21 2021 17:35:42 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "change",
+        "time": "Sun Mar 21 2021 17:35:43 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "change",
+        "time": "Sun Mar 21 2021 17:35:44 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "add",
+        "time": "Sun Mar 21 2021 17:35:45 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "change",
+        "time": "Sun Mar 21 2021 17:35:46 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "change",
+        "time": "Sun Mar 21 2021 17:35:47 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:35:56 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:35:57 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Колонки",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:35:59 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:36:00 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:36:29 GMT+0300 (GMT+03:00)"
+    },
+    {
+        "product": "Клавиатура",
+        "action": "delete",
+        "time": "Sun Mar 21 2021 17:36:29 GMT+0300 (GMT+03:00)"
+    }
+]
