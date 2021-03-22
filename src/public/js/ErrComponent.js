@@ -14,7 +14,7 @@ const error = {
         }
     },
 
-    template: `<h3 v-show="isError">Возникла ошибка</h3>`,
+    template: `<h3 v-show="isError">Возникла ошибка: {{errorMessage}}</h3>`,
 
 };
 
