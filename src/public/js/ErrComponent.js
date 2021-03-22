@@ -2,17 +2,20 @@ const error = {
     data() {
         return {
             isError: false,
-            error: '',
+            errorMessage: '',
         };
     },
 
     methods: {
         setError(err) {
             this.isError = true;
-            this.error = err;
+            this.errorMessage = err;
+            console.log(err);
         }
     },
-    template: `<h3 v-show="isError">Возникла ошибка ${this.error}</h3>`,
+
+    template: `<h3 v-show="isError">Возникла ошибка</h3>`,
+
 };
 
 export default error;

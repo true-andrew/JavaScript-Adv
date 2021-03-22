@@ -1,6 +1,25 @@
+const cart_item = {
+    props: ['cartItem', 'img'],
+    template: `
+                    <div class="cart-item" :data-id="cartItem.id_product">
+                        <div class="product-bio">
+                            <figure><img :src="img" alt="product"></figure>
+                            <figcaption>
+                                <h3>{{cartItem.product_name}}</h3>
+                                <p class="product-quantity">Кол-во: {{cartItem.quantity}}</p>
+                                <p>Цена: {{cartItem.price}} за ед.</p>
+                            </figcaption>
+                        </div>
+                        <div class="right-block">
+                            <p class="product-price">{{cartItem.quantity * cartItem.price}}</p>
+                            <button class="del-btn" @click="$emit('remove', cartItem); $parent.amount--">&#10006;</button>
+                        </div>
+                    </div>`
+};
+
 const cart = {
     components: {
-        cart_item,
+        'cart-item': cart_item,
     },
     data() {
         return {
@@ -87,25 +106,6 @@ const cart = {
             <h1 v-if="cartItems.length" class="cart-heading">Всего товаров: {{amount}}</h1>
             <h1 v-if="cartItems.length" class="cart-heading">Итого: {{final_price}}</h1>
         </div>`
-};
-
-const cart_item = {
-    props: ['cartItem', 'img'],
-    template: `
-                    <div class="cart-item" :data-id="cartItem.id_product">
-                        <div class="product-bio">
-                            <figure><img :src="img" alt="product"></figure>
-                            <figcaption>
-                                <h3>{{cartItem.product_name}}</h3>
-                                <p class="product-quantity">Кол-во: {{cartItem.quantity}}</p>
-                                <p>Цена: {{cartItem.price}} за ед.</p>
-                            </figcaption>
-                        </div>
-                        <div class="right-block">
-                            <p class="product-price">{{cartItem.quantity * cartItem.price}}</p>
-                            <button class="del-btn" @click="$emit('remove', cartItem); $parent.amount--">&#10006;</button>
-                        </div>
-                    </div>`
 };
 
 export default cart;

@@ -1,6 +1,25 @@
+const product = {
+    props: ['product', 'img'],
+    data() {
+        return {
+            cartAPI: this.$root.$refs.cart,
+        };
+    },
+
+    template: `
+            <div class="good-item" :data-id="product.id_product">
+                <img :src="img" alt="image">
+                <div class="desc">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}</p>
+                    <button class="cart-button" @click="cartAPI.addProduct(product); cartAPI.amount++">Купить</button>
+                </div>
+            </div>`
+};
+
 const products = {
     components: {
-        product,
+        'product': product,
     },
     data() {
         return {
@@ -28,25 +47,6 @@ const products = {
                              :product="item">
                     </product>
                 </div>`
-};
-
-const product = {
-    props: ['product', 'img'],
-    data() {
-        return {
-            cartAPI: this.$root.$refs.cart,
-        };
-    },
-
-    template: `
-            <div class="good-item" :data-id="product.id_product">
-                <img :src="img" alt="image">
-                <div class="desc">
-                    <h3>{{product.product_name}}</h3>
-                    <p>{{product.price}}</p>
-                    <button class="cart-button" @click="cartAPI.addProduct(product); cartAPI.amount++">Купить</button>
-                </div>
-            </div>`
 };
 
 export default products;

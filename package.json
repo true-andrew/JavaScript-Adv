@@ -2,7 +2,7 @@
   "name": "lesson1",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.dev.config.js",
+  "main": "./src/public/index.js",
   "dependencies": {
     "express": "^4.17.1",
     "moment": "^2.29.1"
@@ -23,8 +23,14 @@
     "webpack-node-externals": "^2.5.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildDev": "rd /s /q dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js --watch",
+    "buildProd": "rd /s /q dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.dev.config.js --watch",
+    "start": "nodemon dist/server/server.js"
   },
+  "nodemonConfig": {
+    "ignore": ["*.json"]
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/true-andrew/JavaScript-Adv.git"
