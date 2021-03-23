@@ -1,4 +1,26 @@
-Vue.component('cart', {
+const cart_item = {
+    props: ['cartItem', 'img'],
+    template: `
+                    <div class="cart-item" :data-id="cartItem.id_product">
+                        <div class="product-bio">
+                            <figure><img :src="img" alt="product"></figure>
+                            <figcaption>
+                                <h3>{{cartItem.product_name}}</h3>
+                                <p class="product-quantity">Кол-во: {{cartItem.quantity}}</p>
+                                <p>Цена: {{cartItem.price}} за ед.</p>
+                            </figcaption>
+                        </div>
+                        <div class="right-block">
+                            <p class="product-price">{{cartItem.quantity * cartItem.price}}</p>
+                            <button class="del-btn" @click="$emit('remove', cartItem); $parent.amount--">&#10006;</button>
+                        </div>
+                    </div>`
+};
+
+const cart = {
+    components: {
+        'cart-item': cart_item,
+    },
     data() {
         return {
             imgCart: 'https://placehold.it/150x150',
@@ -13,7 +35,11 @@ Vue.component('cart', {
         addProduct(product) {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if (find) {
-                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`});
+                this.$parent.putJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                });
                 find.quantity++;
                 this.final_price += find.price;
             } else {
@@ -31,10 +57,18 @@ Vue.component('cart', {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             this.final_price -= find.price;
             if (find.quantity > 1) {
-                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`});
+                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                });
                 find.quantity--;
             } else {
-                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {quantity: 1, price: find.price, product_name: `${find.product_name}`})
+                this.$parent.deleteJson(`/api/cart/${find.id_product}`, {
+                    quantity: 1,
+                    price: find.price,
+                    product_name: `${find.product_name}`
+                })
                     .then(data => {
                         if (data.result === 1) {
                             this.cartItems.splice(this.cartItems.indexOf(find), 1);
@@ -72,23 +106,6 @@ Vue.component('cart', {
             <h1 v-if="cartItems.length" class="cart-heading">Всего товаров: {{amount}}</h1>
             <h1 v-if="cartItems.length" class="cart-heading">Итого: {{final_price}}</h1>
         </div>`
-});
+};
 
-Vue.component('cart-item', {
-    props: ['cartItem', 'img'],
-    template: `
-                    <div class="cart-item" :data-id="cartItem.id_product">
-                        <div class="product-bio">
-                            <figure><img :src="img" alt="product"></figure>
-                            <figcaption>
-                                <h3>{{cartItem.product_name}}</h3>
-                                <p class="product-quantity">Кол-во: {{cartItem.quantity}}</p>
-                                <p>Цена: {{cartItem.price}} за ед.</p>
-                            </figcaption>
-                        </div>
-                        <div class="right-block">
-                            <p class="product-price">{{cartItem.quantity * cartItem.price}}</p>
-                            <button class="del-btn" @click="$emit('remove', cartItem); $parent.amount--">&#10006;</button>
-                        </div>
-                    </div>`
-});
+export default cart;
